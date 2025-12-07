@@ -13,7 +13,7 @@ public class DenunciaGeralEntity {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
-	@Column(name = "denuncia_geral")
+	@Column(name = "denuncia_geral", length = 5000)
 	private String denunciaGeral;
 	@Column(name = "ip_usuario")
 	private String ipUsuario;
@@ -43,13 +43,12 @@ public class DenunciaGeralEntity {
 	}
 
 	public DenunciaGeralEntity(String denunciaGeral, String ipUsuario) {
-		super();
 		this.denunciaGeral = denunciaGeral;
 		this.ipUsuario = ipUsuario;
 	}
 
 	public DenunciaGeralEntity() {
-		super();
+		
 	}
 
 }

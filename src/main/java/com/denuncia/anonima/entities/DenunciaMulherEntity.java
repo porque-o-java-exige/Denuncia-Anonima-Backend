@@ -43,13 +43,12 @@ public class DenunciaMulherEntity {
 	}
 
 	public DenunciaMulherEntity(String denuncia, String ipUsuario) {
-		super();
 		this.denuncia = denuncia;
 		this.ipUsuario = ipUsuario;
 	}
 
 	public DenunciaMulherEntity() {
-		super();
+
 	}
 
 }
