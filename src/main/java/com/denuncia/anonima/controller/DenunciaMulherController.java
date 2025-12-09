@@ -6,33 +6,32 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.denuncia.anonima.dto.DenunciaGeralDTO;
-import com.denuncia.anonima.services.DenunciaGeralService;
+import com.denuncia.anonima.dto.DenunciaMulherDTO;
+import com.denuncia.anonima.services.DenunciaMulherService;
 
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.validation.Valid;
 
-
 @RestController
-@RequestMapping("/denuncia-geral")
-public class DenunciaGeralController {
-	private final DenunciaGeralService denunciaGeralService;
-
-	public DenunciaGeralController(DenunciaGeralService denunciaGeralService) {
-		this.denunciaGeralService = denunciaGeralService;
+@RequestMapping("/denuncia-mulher")
+public class DenunciaMulherController {
+	
+	private final DenunciaMulherService denunciaMulherService;
+	
+	public DenunciaMulherController(DenunciaMulherService denunciaMulherService) {
+		this.denunciaMulherService = denunciaMulherService;
 	}
-
 
 	// Endpoint para salvar denúncia geral
 	@PostMapping(value = "/salvar")
-	public ResponseEntity<?> salvarDenuncia(@Valid @RequestBody DenunciaGeralDTO dto, HttpServletRequest request) {
+	public ResponseEntity<?> salvarDenuncia(@Valid @RequestBody DenunciaMulherDTO dto, HttpServletRequest request) {
 		// Captura o IP
 		String ip = extrairIp(request);
 		
 		// Seta o IP na entidade
 		dto.setIpUsuario(ip);
 		
-		return ResponseEntity.ok(denunciaGeralService.SalvarDenuncia(dto));
+		return ResponseEntity.ok(denunciaMulherService.SalvarDenunciaMulher(dto));
 	}
 	
 	// Método auxiliar para capturar IP
